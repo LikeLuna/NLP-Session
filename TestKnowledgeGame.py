@@ -1,160 +1,22 @@
 # A fun way to test your knowledge
+import json
+import os
 
 import tkinter as tk
 import random
 from tkinter import messagebox
 
+# load questions
+def load_questions_from_json():
+    path = os.path.join("data", "questions.json")
+    with open(path, "r") as f:
+        return json.load(f)
+
+all_questions = load_questions_from_json()
+
+
 # Define quiz levels
-level_questions = {
-    1: [
-        {
-            "question": "What is Tokenization in NLP?",
-            "options": ["Breaking text into smaller chunks", "Removing verbs from sentences", "Changing words to root form", "Removing punctuation"],
-            "answer": "Breaking text into smaller chunks"
-        },
-        {
-            "question": "Which of these is a tokenizer in NLTK?",
-            "options": ["RegexpTokenizer", "SpacyTokenizer", "DeepTokenizer", "WordVectorizer"],
-            "answer": "RegexpTokenizer"
-        },
-        {
-            "question": "Tokenization is useful for?",
-            "options": ["Generating charts", "Splitting text for processing", "Removing spaces", "Predicting next words"],
-            "answer": "Splitting text for processing"
-        },
-        {
-            "question": "Which one is not a type of tokenizer?",
-            "options": ["WordPunctTokenizer", "TreeTokenizer", "WhitespaceTokenizer", "RegexpTokenizer"],
-            "answer": "TreeTokenizer"
-        },
-        {
-            "question": "What does RegexpTokenizer use?",
-            "options": ["POS tags", "Regular expressions", "Lemmas", "WordNet"],
-            "answer": "Regular expressions"
-        },
-        {
-            "question": "Which tokenizer is simplest?",
-            "options": ["WhitespaceTokenizer", "RegexpTokenizer", "TreebankTokenizer", "SpacyTokenizer"],
-            "answer": "WhitespaceTokenizer"
-        }
-    ],
-    2: [
-        {
-            "question": "What does stemming do?",
-            "options": ["Finds names of entities", "Removes stopwords", "Reduces words to their root form", "Creates tokens from text"],
-            "answer": "Reduces words to their root form"
-        },
-        {
-            "question": "Which is more accurate: stemming or lemmatization?",
-            "options": ["Stemming", "Lemmatization", "Both", "None"],
-            "answer": "Lemmatization"
-        },
-        {
-            "question": "What does the Snowball stemmer do?",
-            "options": ["Adds snow emojis", "Another language stemmer", "Accurate stemming", "Stemming based on regex"],
-            "answer": "Accurate stemming"
-        },
-        {
-            "question": "Does lemmatization require context and POS tags?",
-            "options": ["Yes", "No", "Sometimes", "Never"],
-            "answer": "Yes"
-        },
-        {
-            "question": "Which is a stemmer in NLTK?",
-            "options": ["WordNetLemmatizer", "SnowballStemmer", "SpacyStemmer", "CleanStem"],
-            "answer": "SnowballStemmer"
-        },
-        {
-            "question": "Which library offers lemmatization?",
-            "options": ["NumPy", "NLTK", "Matplotlib", "Pandas"],
-            "answer": "NLTK"
-        }
-    ],
-    3: [
-        {
-            "question": "Which library is commonly used for removing stopwords?",
-            "options": ["Matplotlib", "NLTK", "NumPy", "Pandas"],
-            "answer": "NLTK"
-        },
-        {
-            "question": "What are stopwords?",
-            "options": ["Rare words", "Words like 'the', 'is', 'in'", "Names of people", "Only punctuation marks"],
-            "answer": "Words like 'the', 'is', 'in'"
-        },
-        {
-            "question": "Which word is a stopword?",
-            "options": ["Python", "Beautiful", "is", "Running"],
-            "answer": "is"
-        },
-        {
-            "question": "Why remove stopwords?",
-            "options": ["Improve grammar", "Reduce noise in analysis", "Add more words", "Increase vocabulary"],
-            "answer": "Reduce noise in analysis"
-        },
-        {
-            "question": "Can stopwords vary by language?",
-            "options": ["Yes", "No", "Never", "Only in English"],
-            "answer": "Yes"
-        },
-        {
-            "question": "Which is not a stopword?",
-            "options": ["a", "the", "with", "banana"],
-            "answer": "banana"
-        }
-    ],
-    4: [
-        {
-            "question": "Stemming result of 'Caring' is?",
-            "options": ["Care", "Cared", "Car", "Cares"],
-            "answer": "Care"
-        },
-        {
-            "question": "What is Named Entity Recognition used for?",
-            "options": ["Counting words", "Removing punctuation", "Identifying names/places", "Tokenizing text"],
-            "answer": "Identifying names/places"
-        },
-        {
-            "question": "Does NER work on stopwords?",
-            "options": ["Yes", "No", "Sometimes", "Always"],
-            "answer": "No"
-        },
-        {
-            "question": "What does NER detect?",
-            "options": ["Syntax", "Entities like dates and people", "Grammar rules", "Tenses"],
-            "answer": "Entities like dates and people"
-        },
-        {
-            "question": "Which library supports NER?",
-            "options": ["NumPy", "Spacy", "Matplotlib", "Seaborn"],
-            "answer": "Spacy"
-        },
-        {
-            "question": "Which one is an entity?",
-            "options": ["run", "city", "Python", "New York"],
-            "answer": "New York"
-        },
-        {
-            "question": "How many hearts do you start with?",
-            "options": ["3", "4", "5", "6"],
-            "answer": "5"
-        },
-        {
-            "question": "What happens when hearts reach zero?",
-            "options": ["Skip question", "Lose quiz", "Extra life", "Nothing"],
-            "answer": "Lose quiz"
-        },
-        {
-            "question": "What is POS tagging?",
-            "options": ["Parts of sentence", "Position of sentence", "Point of sentence", "Part-of-Speech"],
-            "answer": "Part-of-Speech"
-        },
-        {
-            "question": "Which tag represents verb?",
-            "options": ["NN", "VB", "JJ", "RB"],
-            "answer": "VB"
-        }
-    ]
-}
+
 # GUI setup
 root = tk.Tk()
 root.title("NLP Quiz Level Selector")
@@ -164,10 +26,13 @@ level_var = tk.IntVar()
 
 def start_quiz():
     level = level_var.get()
-    if level not in level_questions:
+    level=str(level)
+    if level not in all_questions:
+        messagebox.showerror("Invalid Level", "Please select a valid quiz level.")
         return
     root.destroy()
-    launch_quiz(level_questions[level])
+    questions=all_questions[level]
+    launch_quiz(questions)
 
 title = tk.Label(root, text="Select Your NLP Quiz Level", font=("Arial", 16))
 title.pack(pady=20)
@@ -237,6 +102,7 @@ def launch_quiz(questions):
             if hearts == 0:
                 show_result()
                 return
+       
         feedback_label.after(2000,lambda:feedback_label.config(text=""))
         question_index += 1
         quiz.after(1000, display_question)
@@ -255,6 +121,9 @@ def launch_quiz(questions):
         elif final_score < 40:
             emoji = "😔📚"
             message = "You gave it a try and that matters. Don't stop now—next time you'll ace it!"
+        elif final_score<60 and final_score>=50:
+            emoji = "😍🤘 "
+            message = "You're half up there! Just half more."
         else:
             emoji = "😎👍"
             message = "Great effort! You're on the path to mastering NLP. Keep it up!"

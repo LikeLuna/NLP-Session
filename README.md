@@ -22,6 +22,12 @@ Natural Language Processing (NLP) is a field at the intersection of computer sci
 
 NLP powers applications like chatbots, sentiment analysis, translation, voice assistants, and more.
 
+## How old NLP is?
+
+2010s
+  - rule-based Systems : Language Rule
+  - regex : Pattern matching
+  - OCR: Image to text
 
 ## 🎉 How is NLP Fun?
 

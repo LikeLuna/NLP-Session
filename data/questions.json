@@ -1,0 +1,171 @@
+{
+    "1": [
+      {
+        "question": "What is Tokenization in NLP?",
+        "options": ["Breaking text into smaller chunks", "Removing verbs from sentences", "Changing words to root form", "Removing punctuation"],
+        "answer": "Breaking text into smaller chunks"
+      },
+      {
+        "question": "Which of the following is NOT a common type of tokenization?",
+        "options": ["Word Tokenization", "Sentence Tokenization", "Paragraph Tokenization", "Grammar Tokenization"],
+        "answer": "Grammar Tokenization"
+      },
+      {
+        "question": "Tokenization is useful for?",
+        "options": ["Generating charts", "Splitting text for processing", "Removing spaces", "Predicting next words"],
+        "answer": "Splitting text for processing"
+      },
+      {
+        "question": "Which one is not a type of tokenizer?",
+        "options": ["WordPunctTokenizer", "TreeTokenizer", "WhitespaceTokenizer", "RegexpTokenizer"],
+        "answer": "TreeTokenizer"
+      },
+      {
+        "question": "Which Python library is commonly used for word and sentence tokenization?",
+        "options": ["NumPy", "Matplotlib", "NLTK", "OpenCV"],
+        "answer": "NLTK"
+      },
+      {
+        "question": "What is a key challenge in tokenization?",
+        "options": ["Converting numbers to strings", "Identifying parts of speech", "Handling abbreviations and contractions", "Installing libraries"],
+        "answer": "Handling abbreviations and contractions"
+      }
+    ],
+    "2": [
+      {
+        "question": "What does stemming do?",
+        "options": ["Finds names of entities", "Removes stopwords", "Reduces words to their root form", "Creates tokens from text"],
+        "answer": "Reduces words to their root form"
+      },
+      {
+        "question": "Which is more accurate: stemming or lemmatization?",
+        "options": ["Stemming", "Lemmatization", "Both", "None"],
+        "answer": "Lemmatization"
+      },
+      {
+        "question": "What does the Snowball stemmer do?",
+        "options": ["Adds snow emojis", "Another language stemmer", "Accurate stemming", "Stemming based on regex"],
+        "answer": "Accurate stemming"
+      },
+      {
+        "question": "Does lemmatization require context and POS tags?",
+        "options": ["Yes", "No", "Sometimes", "Never"],
+        "answer": "Yes"
+      },
+      {
+        "question": "Which is a stemmer in NLTK?",
+        "options": ["WordNetLemmatizer", "SnowballStemmer", "SpacyStemmer", "CleanStem"],
+        "answer": "SnowballStemmer"
+      },
+      {
+        "question": "Which of the following is a common stemming algorithm?",
+        "options": ["Lemmatizer", "Stopword Filter", "Porter Stemmer", "Dependency Parser"],
+        "answer": "Porter Stemmer"
+      }
+    ],
+    "3": [
+      {
+        "question": "Which library is commonly used for removing stopwords?",
+        "options": ["Matplotlib", "NLTK", "NumPy", "Pandas"],
+        "answer": "NLTK"
+      },
+      {
+        "question": "What are stopwords?",
+        "options": ["Rare words", "Words like 'the', 'is', 'in'", "Names of people", "Only punctuation marks"],
+        "answer": "Words like 'the', 'is', 'in'"
+      },
+      {
+        "question": "Which word is a stopword?",
+        "options": ["Python", "Beautiful", "is", "Running"],
+        "answer": "is"
+      },
+      {
+        "question": "Why remove stopwords?",
+        "options": ["Improve grammar", "Reduce noise in analysis", "Add more words", "Increase vocabulary"],
+        "answer": "Reduce noise in analysis"
+      },
+      {
+        "question": "Can stopwords vary by language?",
+        "options": ["Yes", "No", "Never", "Only in English"],
+        "answer": "Yes"
+      },
+      {
+        "question": "Which is not a stopword?",
+        "options": ["a", "the", "with", "banana"],
+        "answer": "banana"
+      }
+    ],
+    "4": [
+      {
+        "question": "Stemming result of 'Caring' is?",
+        "options": ["Care", "Cared", "Car", "Cares"],
+        "answer": "Care"
+      },
+      {
+        "question": "What is Named Entity Recognition used for?",
+        "options": ["Counting words", "Removing punctuation", "Identifying names/places", "Tokenizing text"],
+        "answer": "Identifying names/places"
+      },
+      {
+        "question": "Does NER work on stopwords?",
+        "options": ["Yes", "No", "Sometimes", "Always"],
+        "answer": "No"
+      },
+      {
+        "question": "What does NER detect?",
+        "options": ["Syntax", "Entities like dates and people", "Grammar rules", "Tenses"],
+        "answer": "Entities like dates and people"
+      },
+      {
+        "question": "Which library supports NER?",
+        "options": ["NumPy", "Spacy", "Matplotlib", "Seaborn"],
+        "answer": "Spacy"
+      },
+      {
+        "question": "Which one is an entity?",
+        "options": ["run", "city", "Python", "New York"],
+        "answer": "New York"
+      },
+      {
+        "question": "Why is it sometimes incorrect to remove all stopwords from text data in NLP tasks?",
+        "options": [
+          "Stopwords slow down model performance",
+          "Stopwords can carry contextual meaning in some tasks like sentiment analysis",
+          "Stopwords are always meaningless",
+          "Stopwords must be removed to increase accuracy"
+        ],
+        "answer": "Stopwords can carry contextual meaning in some tasks like sentiment analysis"
+      },
+      {
+        "question": "In Named Entity Recognition (NER), which of the following is most likely to cause errors in identifying named entities?",
+        "options": [
+          "Using a pre-trained language model",
+          "Entities appearing in uncommon contexts",
+          "Proper nouns with capital letters",
+          "Short documents with known words"
+        ],
+        "answer": "Entities appearing in uncommon contexts"
+      },
+      {
+        "question": "What is POS tagging?",
+        "options": ["Parts of sentence", "Position of sentence", "Point of sentence", "Part-of-Speech"],
+        "answer": "Part-of-Speech"
+      },
+      {
+        "question": "Which tag represents verb?",
+        "options": ["NN", "VB", "JJ", "RB"],
+        "answer": "VB"
+      },
+      {
+        "question": "Why might a Named Entity Recognizer incorrectly classify 'Apple' in the sentence 'She bought an apple phone'?",
+        "options": [
+          "NER models cannot recognize brand names",
+          "NER models ignore lowercase tokens",
+          "NER models often rely on context, and ambiguous words like 'Apple' require disambiguation",
+          "NER models always tag proper nouns as ORG"
+        ],
+        "answer": "NER models often rely on context, and ambiguous words like 'Apple' require disambiguation"
+      }
+    ]
+  }
+  
